@@ -1,0 +1,21 @@
+{
+    "short_name": "You Photo",
+    "name": "You Photo",
+    "start_url": "index.html",
+    "background_color": "#00c2cb",
+    "theme_color": "#0d9682",
+    "display": "standalone",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "ico/green_192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "ico/green_512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
