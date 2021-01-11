@@ -7,11 +7,17 @@
 
   <!-- Required Meta Tags Always Come First -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, height=device-height, viewport-fit=cover">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="manifest" href="manifest.json">
+  <link rel="shortcut icon" href="ico/black_512.png">
+  <!-- Android -->
+  <meta name="theme-color" content="#0d9682">
+  <!-- IOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="shortcut icon" href="ico/black_512.png">
+  <meta name="apple-mobile-web-app-title" content="You Photo">
+  <link rel="apple-touch-icon" href="ico/square_green_192.png">
 
 
   <!-- iOs Splash Screen -->
@@ -26,6 +32,8 @@
   <link href="img/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
   <link href="img/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
   <!-- End iOs Splash Screen -->
+
+  <link rel="stylesheet" href="assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
 
   <!-- Google Fonts -->
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik">
@@ -44,9 +52,10 @@
   <link rel="stylesheet" href="assets/css/unify-core.css">
   <link rel="stylesheet" href="assets/css/unify-components.css">
   <link rel="stylesheet" href="assets/css/unify-globals.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body ontouchstart="">
   <main>
     <!-- Header -->
     <header id="js-header" class="u-header u-header--static">
@@ -64,8 +73,8 @@
             <!-- End Responsive Toggle Button -->
 
             <!-- Logo -->
-            <a href="#" class="navbar-brand d-flex">
-              <img src="ico/large_512.png" width="175px" >
+            <a href="#" class="navbar-brand d-flex" name="home-link">
+              <img src="ico/large_512.png" alt="logo" width="175px" >
             </a>
             <!-- End Logo -->
 
@@ -182,7 +191,7 @@
       </div>
     </footer>
     <!-- End Copyright Footer -->
-    <a class="js-go-to u-go-to-v1" href="#" data-type="fixed" data-position='{"bottom": 15,"right": 15}' data-offset-top="400" data-compensation="#js-header" data-show-effect="zoomIn">
+    <a class="js-go-to u-go-to-v1" href="#" data-type="fixed" data-position='{"bottom": 15,"right": 15}' data-offset-top="400" data-compensation="#js-header" data-show-effect="zoomIn">&nbsp;
       <i class="hs-icon hs-icon-arrow-top"></i>
     </a>
   </main>
@@ -202,15 +211,13 @@
   <script src="assets/js/components/hs.go-to.js"></script>
   <!-- JS Plugins Init. -->
   <script src="js/index.js"></script>
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
-  <!-- End CSS -->
   <!-- Scripts -->
   <script src="assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
   <script src="assets/js/components/hs.scrollbar.js"></script>
   <!-- End Scripts -->
 
   <script src="js/app.js"></script>
+  <script src="js/pouchdb.min.js"></script>
 
 </body>
 

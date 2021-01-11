@@ -4,7 +4,7 @@ importScripts('js/sw-utils.js');
 
 const STATIC_CACHE    = 'static-v2';
 const DYNAMIC_CACHE   = 'dynamic-v2';
-const INMUTABLE_CACHE = 'inmutable-v2';
+const INMUTABLE_CACHE = 'inmutable-v1';
 
 
 const APP_SHELL = [
@@ -25,7 +25,7 @@ const APP_SHELL = [
 ];
 
 const APP_SHELL_INMUTABLE = [
-    //'https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik',
+    'https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik',
     'assets/vendor/bootstrap/bootstrap.min.css',
     'assets/vendor/icon-awesome/css/font-awesome.min.css',
     'assets/vendor/icon-line/css/simple-line-icons.css',
@@ -49,7 +49,8 @@ const APP_SHELL_INMUTABLE = [
     'assets/js/components/text-animation/hs.text-slideshow.js',
     'assets/js/components/hs.go-to.js',
     'assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js',
-    'assets/js/components/hs.scrollbar.js'
+    'assets/js/components/hs.scrollbar.js',
+    'js/pouchdb.min.js'
 ];
 
 
