@@ -4,11 +4,3 @@ html, body{
 	-webkit-tap-highlight-color: transparent;
 	-webkit-touch-callout: none;
 }
-input[type="file"] {
-    display: none;
-} 
-.custom-file-upload {
-    border: 1px solid #ccc;
-    padding: 6px 12px;
-    cursor: pointer;
-}
