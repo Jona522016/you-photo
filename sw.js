@@ -2,19 +2,14 @@
 importScripts('js/sw-utils.js');
 
 
-const STATIC_CACHE    = 'static-v3';
+const STATIC_CACHE    = 'static-v4';
 const DYNAMIC_CACHE   = 'dynamic-v2';
-const INMUTABLE_CACHE = 'inmutable-v2';
+const INMUTABLE_CACHE = 'inmutable-v1';
 
 
 const APP_SHELL = [
     //  '/',
     'index.html',
-    'contacto.html',
-    'about.html',
-    'tomar_foto.html',
-    'politica.html',
-    'terminos.html',
     'ico/black_512.png',
     'img/promo_block_photo.jpg',
     'ico/large_512.png',
@@ -22,9 +17,9 @@ const APP_SHELL = [
     'js/app.js',
     'js/index.js',
     'js/sw-utils.js'
-];
+    ];
 
-const APP_SHELL_INMUTABLE = [
+    const APP_SHELL_INMUTABLE = [
     'https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik',
     'assets/vendor/bootstrap/bootstrap.min.css',
     'assets/vendor/icon-awesome/css/font-awesome.min.css',
@@ -50,77 +45,88 @@ const APP_SHELL_INMUTABLE = [
     'assets/js/components/hs.go-to.js',
     'assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js',
     'assets/js/components/hs.scrollbar.js',
-    'js/pouchdb.min.js'
-];
+    'js/pouchdb.min.js',
+    'js/md5.min.js'
+    ];
 
 
 
-self.addEventListener('install', e => {
+    self.addEventListener('install', e => {
 
 
-    const cacheStatic = caches.open( STATIC_CACHE ).then(cache => 
-        cache.addAll( APP_SHELL ));
+        const cacheStatic = caches.open( STATIC_CACHE ).then(cache => 
+            cache.addAll( APP_SHELL ));
 
-    const cacheInmutable = caches.open( INMUTABLE_CACHE ).then(cache => 
-        cache.addAll( APP_SHELL_INMUTABLE ));
-
-
-    e.waitUntil( Promise.all([ cacheStatic, cacheInmutable ])  );
-
-});
+        const cacheInmutable = caches.open( INMUTABLE_CACHE ).then(cache => 
+            cache.addAll( APP_SHELL_INMUTABLE ));
 
 
-self.addEventListener('activate', e => {
-
-    const respuesta = caches.keys().then( keys => {
-
-        keys.forEach( key => {
-
-            if (  key !== STATIC_CACHE && key.includes('static') ) {
-                return caches.delete(key);
-            }
-
-            if (  key !== DYNAMIC_CACHE && key.includes('dynamic') ) {
-                return caches.delete(key);
-            }
-
-            if (  key !== INMUTABLE_CACHE && key.includes('inmutable') ) {
-                return caches.delete(key);
-            }
-        });
+        e.waitUntil( Promise.all([ cacheStatic, cacheInmutable ])  );
 
     });
 
-    e.waitUntil( respuesta );
 
-});
+    self.addEventListener('activate', e => {
 
+        const respuesta = caches.keys().then( keys => {
 
+            keys.forEach( key => {
 
+                if (  key !== STATIC_CACHE && key.includes('static') ) {
+                    return caches.delete(key);
+                }
 
-self.addEventListener( 'fetch', e => {
+                if (  key !== DYNAMIC_CACHE && key.includes('dynamic') ) {
+                    return caches.delete(key);
+                }
 
-
-    const respuesta = caches.match( e.request ).then( res => {
-
-        if ( res ) {
-            return res;
-        } else {
-
-            return fetch( e.request ).then( newRes => {
-
-                return actualizaCacheDinamico( DYNAMIC_CACHE, e.request, newRes );
-
+                if (  key !== INMUTABLE_CACHE && key.includes('inmutable') ) {
+                    return caches.delete(key);
+                }
             });
 
-        }
+        });
+
+        e.waitUntil( respuesta );
 
     });
 
 
 
-    e.respondWith( respuesta );
 
-});
+    self.addEventListener( 'fetch', e => {
+
+        let respuesta;
+
+        if(e.request.url.includes('app.negociosweb.info')){
+
+            respuesta = manejoWebService( DYNAMIC_CACHE, e.request);
+
+        }else{
+
+           respuesta = caches.match( e.request ).then( res => {
+
+            if ( res ) {
+                return res;
+            } else {
+
+                return fetch( e.request ).then( newRes => {
+
+                    return actualizaCacheDinamico( DYNAMIC_CACHE, e.request, newRes );
+
+                });
+
+            }
+
+        });
+
+       }
+
+
+
+
+       e.respondWith( respuesta );
+
+   });
 
 

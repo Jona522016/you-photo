@@ -55,119 +55,386 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body ontouchstart="">
+<body>
   <main>
-    <!-- Header -->
-    <header id="js-header" class="u-header u-header--static">
-      <div class="u-header__section u-header__section--light g-bg-white g-transition-0_3 g-py-10">
-        <nav class="js-mega-menu navbar navbar-expand-lg hs-menu-initialized hs-menu-horizontal">
-          <div class="container">
-            <!-- Responsive Toggle Button -->
-            <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 g-top-10 g-pos-abs g-right-0" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
-              <span class="hamburger hamburger--slider">
-                <span class="hamburger-box">
-                  <span class="hamburger-inner"></span>
+    <div id="content-wrap">
+      <header id="js-header" class="u-header u-header--static">
+        <div class="u-header__section u-header__section--light g-bg-white g-transition-0_3 g-py-10">
+          <nav class="js-mega-menu navbar navbar-expand-lg hs-menu-initialized hs-menu-horizontal">
+            <div class="container">
+
+              <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 g-top-10 g-pos-abs g-right-0" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
+                <span class="hamburger hamburger--slider" id="hamburguesa">
+                  <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                  </span>
                 </span>
-              </span>
-            </button>
-            <!-- End Responsive Toggle Button -->
+              </button>
 
-            <!-- Logo -->
-            <a href="#" class="navbar-brand d-flex" name="home-link">
-              <img src="ico/large_512.png" alt="logo" width="175px" >
-            </a>
-            <!-- End Logo -->
 
-            <!-- Navigation -->
-            <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--lg" id="navBar">
-              <ul class="navbar-nav text-uppercase g-pos-rel g-font-weight-600 ml-auto">
-                <li class="nav-item active g-mx-10--lg g-mx-15--xl">
-                  <a href="#" class="nav-link g-py-7 g-px-0"><i class="fa fa-home"></i>&nbsp;&nbsp;INICIO</a>
-                </li>
-                <li class="nav-item  g-mx-10--lg g-mx-15--xl">
-                  <a href="contacto.html" class="nav-link g-py-7 g-px-0"><i class="fa fa-address-book"></i>&nbsp;&nbsp;Contacto</a>
-                </li>
-                <li class="nav-item  g-mx-10--lg g-mx-15--xl">
-                  <a href="about.html" class="nav-link g-py-7 g-px-0"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Sobre esta Aplicación</a>
-                </li>
-              </ul>
+
+              <a href="#" class="navbar-brand d-flex" name="home-link">
+                <img  onclick="mostrar_seccion('inicio')" src="ico/large_512.png" alt="logo" width="55%" >
+              </a>
+
+
+
+              <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--lg" id="navBar">
+                <ul class="navbar-nav text-uppercase g-pos-rel g-font-weight-600 ml-auto">
+                  <li class="nav-item active g-mx-10--lg g-mx-15--xl" id="menu_inicio">
+                    <a href="#" onclick="mostrar_seccion('inicio')" class="nav-link g-py-7 g-px-0"><i class="fa fa-home"></i>&nbsp;&nbsp;INICIO</a>
+                  </li>
+                  <li class="nav-item  g-mx-10--lg g-mx-15--xl" id="menu_contacto">
+                    <a href="#" onclick="mostrar_seccion('contacto')" class="nav-link g-py-7 g-px-0"><i class="fa fa-address-book"></i>&nbsp;&nbsp;Contacto</a>
+                  </li>
+                  <li class="nav-item  g-mx-10--lg g-mx-15--xl" id="menu_tomar_foto">
+                    <a href="#" onclick="mostrar_seccion('tomar_foto')" class="nav-link g-py-7 g-px-0"><i class="fa fa-camera"></i>&nbsp;&nbsp;Tomar Foto</a>
+                  </li>
+                  <li class="nav-item  g-mx-10--lg g-mx-15--xl" id="menu_afiliados">
+                    <a href="#" onclick="mostrar_seccion('afiliados')" class="nav-link g-py-7 g-px-0"><i class="fa fa-building"></i>&nbsp;&nbsp;Colegios Afiliados</a>
+                  </li>
+                  <li class="nav-item  g-mx-10--lg g-mx-15--xl" id="menu_terminos">
+                    <a href="#" onclick="mostrar_seccion('terminos')" class="nav-link g-py-7 g-px-0"><i class="fa fa-file-text-o"></i>&nbsp;&nbsp;Términos de Uso</a>
+                  </li>
+                  <li class="nav-item  g-mx-10--lg g-mx-15--xl" id="menu_politica">
+                    <a href="#" onclick="mostrar_seccion('politica')" class="nav-link g-py-7 g-px-0"><i class="fa fa-file-text-o"></i>&nbsp;&nbsp;Política de Privacidad</a>
+                  </li>
+                  <li class="nav-item  g-mx-10--lg g-mx-15--xl g-mt-2">
+                    <br>
+                    <p class="text-muted text-center">V- Beta 0.005</p>
+                  </li>
+                </ul>
+              </div>
+
             </div>
-            <!-- End Navigation -->
+          </nav>
+        </div>
+      </header>
+
+      <div id="inicio">
+
+        <section class="g-bg-cover g-bg-pos-top-center g-bg-img-hero g-bg-black-opacity-0_4--after g-min-height-100vh g-flex-centered g-py-100" style="background-image: url(img/promo_block_photo.jpg);">
+          <div class="container g-color-white text-center g-z-index-1">
+            <div class="mb-5">
+              <p class="g-font-size-24">Desde nuestra aplicación tomar las fotos para el colegio es</p>
+              <h2 class="g-font-weight-700 g-font-size-40 g-font-size-70--md text-uppercase g-mb-30">
+                Más
+                <span class="u-text-animation u-text-animation--typing"></span>
+              </h2>
+            </div>
+
+            <a class="btn u-btn-outline-white g-color-white g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13" href="#" onclick="mostrar_seccion('tomar_foto')">Tomar Foto</a>
           </div>
-        </nav>
-      </div>
-    </header>
-    <!-- End Header -->
+        </section>
 
-    <!-- Promo Block -->
-    <section class="g-bg-cover g-bg-pos-top-center g-bg-img-hero g-bg-black-opacity-0_4--after g-min-height-100vh g-flex-centered g-py-100" style="background-image: url(img/promo_block_photo.jpg);">
-      <div class="container g-color-white text-center g-z-index-1">
-        <div class="mb-5">
-          <p class="g-font-size-24">Desde nuestra aplicación tomar las fotos para el colegio es</p>
-          <h2 class="g-font-weight-700 g-font-size-40 g-font-size-70--md text-uppercase g-mb-30">
-            Más
-            <span class="u-text-animation u-text-animation--typing"></span>
-          </h2>
+        <div class="row no-gutters g-brd-bottom--lg g-brd-gray-light-v4">
+          <div class="col-lg-4 g-pa-60">
+
+            <div class="text-center">
+              <span class="d-inline-block u-icon-v3 u-icon-size--xl g-font-size-36 g-bg-primary g-color-white rounded-circle g-mb-20">
+                <i class="icon-check u-line-icon-pro"></i>
+              </span>
+              <h3 class="h4 g-color-gray-dark-v2 mb-3">Fácil</h3>
+              <p class="mb-0">Solo tienes que dar click en el botón "Tomar Foto" y tomas la foto a tu hijo, rellenas el fomulario de información necesaria y listo.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 g-brd-left--lg g-brd-gray-light-v4 g-pa-60">
+
+            <div class="text-center">
+              <span class="d-inline-block u-icon-v3 u-icon-size--xl g-font-size-36 g-bg-primary g-color-white rounded-circle g-mb-20">
+                <i class="icon-communication-012 u-line-icon-pro"></i>
+              </span>
+              <h3 class="h4 g-color-gray-dark-v2 mb-3">Rápido</h3>
+              <p class="mb-0">En cuanto envíes el formulario con tu foto (si estás conectado a internet) la tendrémos disponible.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 g-brd-left--lg g-brd-gray-light-v4 g-pa-60">
+
+            <div class="text-center">
+              <span class="d-inline-block u-icon-v3 u-icon-size--xl g-font-size-36 g-bg-primary g-color-white rounded-circle g-mb-20">
+                <i class="icon-lock u-line-icon-pro"></i>
+              </span>
+              <h3 class="h4 g-color-gray-dark-v2 mb-3">Seguro</h3>
+              <p class="mb-0">Solo puedes enviar el formulario con tu foto si tienes el código de seguridad de tu colegio.</p>
+            </div>
+          </div>
         </div>
+        <section class="g-bg-primary g-color-white g-pa-30" style="background-image: url(assets/img/bg/pattern5.png);">
+          <div class="d-md-flex justify-content-md-center text-center">
+            <div class="align-self-md-center">
+              <p class="lead g-font-weight-400 g-mr-20--md g-mb-15 g-mb-0--md">Consulta si tu colegio ya está en nuestra lista de afiliados</p>
+            </div>
+            <div class="align-self-md-center">
+              <a class="btn btn-lg u-btn-white text-uppercase g-font-weight-600 g-font-size-12" href="#" onclick="mostrar_seccion('afiliados')">Consultar</a>
+            </div>
+          </div>
+        </section>
+      </div> 
 
-        <a class="btn u-btn-outline-white g-color-white g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13" href="tomar_foto.html">Tomar Foto</a>
-      </div>
-    </section>
-    <!-- End Promo Block -->
+      <div id="tomar_foto" style="display:none;">
+        <section class="container g-p-40">
+          <div class="row justify-content-between">
+            <div class="col-md-12 g-mb-60">
+              <div class="alert alert-dismissible fade show g-bg-red g-color-white rounded-0" id="alerta" role="alert" style="display: none;">
+                <button type="button" class="close u-alert-close--light" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
 
-    <!-- Icon Blocks -->
-    <div class="row no-gutters g-brd-bottom--lg g-brd-gray-light-v4">
-      <div class="col-lg-4 g-pa-60">
-        <!-- Icon Blocks -->
-        <div class="text-center">
-          <span class="d-inline-block u-icon-v3 u-icon-size--xl g-font-size-36 g-bg-primary g-color-white rounded-circle g-mb-20">
-            <i class="icon-check u-line-icon-pro"></i>
-          </span>
-          <h3 class="h4 g-color-gray-dark-v2 mb-3">Fácil</h3>
-          <p class="mb-0">Solo tienes que dar click en el botón "Tomar Foto" y tomas la foto a tu hijo, rellenas el fomulario de información necesaria y listo.</p>
-        </div>
-        <!-- End Icon Blocks -->
+                <div class="media">
+                  <span class="d-flex g-mr-10 g-mt-5">
+                    <i class="icon-ban g-font-size-25"></i>
+                  </span>
+                  <span class="media-body align-self-center">
+                    <strong>Lo sentimos!</strong> Su clave no es válida, consulta con tu colegio para que te otorguen la clave correspondiente, o intenta escribir de nuevo la clave
+                  </span>
+                </div>
+              </div>
+              <form>
+                <div class="row">
+                  <div class="col-md-6 form-group g-mb-20">
+                    <label class="g-color-gray-dark-v2 g-font-size-13">Nombre Estudiante:</label>
+                    <input class="form-control g-color-gray-dark-v5 g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" placeholder="Nombre completo del Estudiante" id="nombre" type="text">
+                  </div>
+
+                  <div class="col-md-6 form-group g-mb-20">
+                    <label class="g-color-gray-dark-v2 g-font-size-13">Grado que cursa el estudiante:</label>
+                    <select class="form-control rounded-0" id="grado">
+                      <option value="1">Primero Primaria</option>
+                      <option value="2">Segundo Primaria</option>
+                      <option value="3">Tercero Primaria</option>
+                      <option value="4">Cuarto Primaria</option>
+                      <option value="5">Quinto Primaria</option>
+                      <option value="6">Sexto Primaria</option>
+                      <option value="7">Primero Básico</option>
+                      <option value="8">Segundo Básico</option>
+                      <option value="9">Tercero Básico</option>
+                      <option value="10">Cuarto Bachillerato</option>
+                      <option value="11">Quinto Bachillerato</option>
+                      <option value="12">Cuarto Secretariado</option>
+                      <option value="13">Quinto Secretariado</option>
+                      <option value="14">Sexto Secretariado</option>
+                      <option value="15">Cuarto Perito Contador</option>
+                      <option value="16">Quinto Perito Contador</option>
+                      <option value="17">Sexto Perito Contador</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6 form-group g-mb-20">
+                    <label>
+                      &nbsp;
+                    </label>
+                    <label class="btn btn-block btn-primary">
+                      Tomar Foto <input type="file" accept="image/*" id="foto" capture="camera"  name="foto" style="display: none;">
+                    </label>
+                    <img id="vista_previa" src="#" style="display: none;" class="mx-aut mt-1" width="100%" />
+                  </div>
+
+                  <div class="col-md-6 form-group g-mb-10">
+                    <label class="g-color-gray-dark-v2 g-font-size-13">Clave:</label>
+                    <div class="input-group">
+                      <input class="form-control g-color-gray-dark-v5 g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15 " autocomplete="cc-number" placeholder="Clave de acceso para tu colegio" id="clave" type="password">
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+                          <i class="fa fa-eye-slash" onclick="verClave()" id="ver_clave"></i>
+                        </span>
+                      </div>            
+                    </div>
+                    <small class="form-text text-muted g-color-red" id="clave_invalida" style="display: none;">
+                      Clave invalida
+                    </small> 
+                  </div>
+                </div>
+                <hr>
+                <button class="btn u-btn-primary btn-block rounded-3 g-py-12 g-px-20" id="enviar_foto">Enviar formulario</button>
+              </form>
+            </div>
+          </div>
+        </section>
       </div>
 
-      <div class="col-lg-4 g-brd-left--lg g-brd-gray-light-v4 g-pa-60">
-        <!-- Icon Blocks -->
-        <div class="text-center">
-          <span class="d-inline-block u-icon-v3 u-icon-size--xl g-font-size-36 g-bg-primary g-color-white rounded-circle g-mb-20">
-            <i class="icon-communication-012 u-line-icon-pro"></i>
-          </span>
-          <h3 class="h4 g-color-gray-dark-v2 mb-3">Rápido</h3>
-          <p class="mb-0">En cuanto envíes el formulario con tu foto (si estás conectado a internet) la tendrémos disponible.</p>
-        </div>
-        <!-- End Icon Blocks -->
+      <div id="terminos" style="display:none;">
+        <section class="container g-pt-10 g-pb-40">
+          <legend class="text-center">Términos de Uso</legend>
+          <hr>
+          <div class="row justify-content-between">
+            <div class="col-md-12 mx-2">
+              <p class="g-font-size-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim cras tincidunt. Vitae aliquet nec ullamcorper sit amet. Sagittis eu volutpat odio facilisis mauris sit amet massa vitae. Porttitor eget dolor morbi non arcu risus quis. Risus nullam eget felis eget nunc lobortis mattis.
+              </p>
+              <p class="g-font-size-16"> Nulla pharetra diam sit amet. Blandit aliquam etiam erat velit scelerisque in dictum non. Cursus risus at ultrices mi tempus imperdiet nulla malesuada. Amet mattis vulputate enim nulla aliquet porttitor. Enim ut sem viverra aliquet eget sit amet. Tempus egestas sed sed risus pretium quam.
+              </p>
+              <p class="g-font-size-16">
+                Non blandit massa enim nec dui nunc mattis. Eleifend mi in nulla posuere sollicitudin aliquam ultrices. Orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero. Turpis cursus in hac habitasse platea dictumst quisque sagittis purus. Dolor purus non enim praesent elementum facilisis leo vel fringilla. Neque laoreet suspendisse interdum consectetur. Ut ornare lectus sit amet est placerat in egestas erat. Tristique nulla aliquet enim tortor. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Mauris pharetra et ultrices neque ornare. A diam sollicitudin tempor id eu nisl nunc mi. Integer quis auctor elit sed vulputate mi. Est lorem ipsum dolor sit amet consectetur adipiscing elit.
+              </p>
+              <p class="g-font-size-16">
+                Velit scelerisque in dictum non consectetur a erat nam. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Cras fermentum odio eu feugiat pretium nibh. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae. Ut placerat orci nulla pellentesque. Faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Consequat id porta nibh venenatis cras sed felis. Nunc non blandit massa enim. Nulla porttitor massa id neque. Sollicitudin tempor id eu nisl. Ipsum consequat nisl vel pretium lectus quam. Sed libero enim sed faucibus turpis in eu mi. Pellentesque pulvinar pellentesque habitant morbi.
+              </p>
+              <p class="g-font-size-16"> Ultrices sagittis orci a scelerisque purus semper eget. Dignissim convallis aenean et tortor at risus viverra. Arcu non sodales neque sodales ut etiam sit amet nisl. Pellentesque sit amet porttitor eget. At ultrices mi tempus imperdiet nulla malesuada pellentesque. Orci ac auctor augue mauris. Arcu risus quis varius quam quisque id.
+              </p>
+              <p class="g-font-size-16">
+                Viverra nam libero justo laoreet sit. Sit amet est placerat in. Nisl tincidunt eget nullam non nisi est sit amet. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Dolor morbi non arcu risus quis varius quam quisque. Aliquet sagittis id consectetur purus. Ac felis donec et odio pellentesque diam volutpat. Elementum curabitur vitae nunc sed. Egestas purus viverra accumsan in nisl nisi scelerisque. Pellentesque massa placerat duis ultricies lacus sed. Tincidunt arcu non sodales neque sodales. Et pharetra pharetra massa massa ultricies mi quis hendrerit. Mollis aliquam ut porttitor leo a diam sollicitudin tempor. Vitae semper quis lectus nulla at volutpat diam. Cursus metus aliquam eleifend mi in. Commodo ullamcorper a lacus vestibulum. Tellus molestie nunc non blandit massa enim nec. Felis donec et odio pellentesque diam volutpat commodo.
+              </p>
+              <p class="g-font-size-16">
+                Orci eu lobortis elementum nibh tellus molestie nunc non blandit. Quam id leo in vitae turpis massa sed elementum. Faucibus ornare suspendisse sed nisi. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc. Nisi est sit amet facilisis magna etiam tempor. Ac ut consequat semper viverra nam libero justo laoreet sit. In nisl nisi scelerisque eu. Sit amet consectetur adipiscing elit pellentesque habitant. Nunc sed velit dignissim sodales ut eu. Feugiat in ante metus dictum at tempor commodo ullamcorper.
+              </p>
+              <p class="g-font-size-16">Tempor orci dapibus ultrices in. Nibh praesent tristique magna sit amet purus. Fermentum et sollicitudin ac orci phasellus egestas.
+              </p>
+              <p class="g-font-size-16"> Elementum eu facilisis sed odio morbi quis commodo odio aenean. Nam libero justo laoreet sit amet cursus sit amet. Ut sem nulla pharetra diam sit. Sagittis purus sit amet volutpat consequat mauris nunc congue nisi. Integer eget aliquet nibh praesent tristique magna sit amet purus. Eget est lorem ipsum dolor sit amet consectetur adipiscing.</p>
+            </div>
+          </div>
+        </section>
       </div>
 
-      <div class="col-lg-4 g-brd-left--lg g-brd-gray-light-v4 g-pa-60">
-        <!-- Icon Blocks -->
-        <div class="text-center">
-          <span class="d-inline-block u-icon-v3 u-icon-size--xl g-font-size-36 g-bg-primary g-color-white rounded-circle g-mb-20">
-            <i class="icon-lock u-line-icon-pro"></i>
-          </span>
-          <h3 class="h4 g-color-gray-dark-v2 mb-3">Seguro</h3>
-          <p class="mb-0">Solo puedes enviar el formulario con tu foto si tienes el código de seguridad de tu colegio.</p>
-        </div>
-        <!-- End Icon Blocks -->
+      <div id="politica" style="display:none;">
+        <section class="container g-pt-10 g-pb-40">
+          <legend class="text-center">Política de Privacidad</legend>
+          <hr>
+          <div class="row justify-content-between">
+            <div class="col-md-12 mx-2">
+              <p class="g-font-size-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim cras tincidunt. Vitae aliquet nec ullamcorper sit amet. Sagittis eu volutpat odio facilisis mauris sit amet massa vitae. Porttitor eget dolor morbi non arcu risus quis. Risus nullam eget felis eget nunc lobortis mattis.
+              </p>
+              <p class="g-font-size-16"> Nulla pharetra diam sit amet. Blandit aliquam etiam erat velit scelerisque in dictum non. Cursus risus at ultrices mi tempus imperdiet nulla malesuada. Amet mattis vulputate enim nulla aliquet porttitor. Enim ut sem viverra aliquet eget sit amet. Tempus egestas sed sed risus pretium quam.
+              </p>
+              <p class="g-font-size-16">
+                Non blandit massa enim nec dui nunc mattis. Eleifend mi in nulla posuere sollicitudin aliquam ultrices. Orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero. Turpis cursus in hac habitasse platea dictumst quisque sagittis purus. Dolor purus non enim praesent elementum facilisis leo vel fringilla. Neque laoreet suspendisse interdum consectetur. Ut ornare lectus sit amet est placerat in egestas erat. Tristique nulla aliquet enim tortor. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Mauris pharetra et ultrices neque ornare. A diam sollicitudin tempor id eu nisl nunc mi. Integer quis auctor elit sed vulputate mi. Est lorem ipsum dolor sit amet consectetur adipiscing elit.
+              </p>
+              <p class="g-font-size-16">
+                Velit scelerisque in dictum non consectetur a erat nam. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Cras fermentum odio eu feugiat pretium nibh. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae. Ut placerat orci nulla pellentesque. Faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Consequat id porta nibh venenatis cras sed felis. Nunc non blandit massa enim. Nulla porttitor massa id neque. Sollicitudin tempor id eu nisl. Ipsum consequat nisl vel pretium lectus quam. Sed libero enim sed faucibus turpis in eu mi. Pellentesque pulvinar pellentesque habitant morbi.
+              </p>
+              <p class="g-font-size-16"> Ultrices sagittis orci a scelerisque purus semper eget. Dignissim convallis aenean et tortor at risus viverra. Arcu non sodales neque sodales ut etiam sit amet nisl. Pellentesque sit amet porttitor eget. At ultrices mi tempus imperdiet nulla malesuada pellentesque. Orci ac auctor augue mauris. Arcu risus quis varius quam quisque id.
+              </p>
+              <p class="g-font-size-16">
+                Viverra nam libero justo laoreet sit. Sit amet est placerat in. Nisl tincidunt eget nullam non nisi est sit amet. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Dolor morbi non arcu risus quis varius quam quisque. Aliquet sagittis id consectetur purus. Ac felis donec et odio pellentesque diam volutpat. Elementum curabitur vitae nunc sed. Egestas purus viverra accumsan in nisl nisi scelerisque. Pellentesque massa placerat duis ultricies lacus sed. Tincidunt arcu non sodales neque sodales. Et pharetra pharetra massa massa ultricies mi quis hendrerit. Mollis aliquam ut porttitor leo a diam sollicitudin tempor. Vitae semper quis lectus nulla at volutpat diam. Cursus metus aliquam eleifend mi in. Commodo ullamcorper a lacus vestibulum. Tellus molestie nunc non blandit massa enim nec. Felis donec et odio pellentesque diam volutpat commodo.
+              </p>
+              <p class="g-font-size-16">
+                Orci eu lobortis elementum nibh tellus molestie nunc non blandit. Quam id leo in vitae turpis massa sed elementum. Faucibus ornare suspendisse sed nisi. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc. Nisi est sit amet facilisis magna etiam tempor. Ac ut consequat semper viverra nam libero justo laoreet sit. In nisl nisi scelerisque eu. Sit amet consectetur adipiscing elit pellentesque habitant. Nunc sed velit dignissim sodales ut eu. Feugiat in ante metus dictum at tempor commodo ullamcorper.
+              </p>
+              <p class="g-font-size-16">Tempor orci dapibus ultrices in. Nibh praesent tristique magna sit amet purus. Fermentum et sollicitudin ac orci phasellus egestas.
+              </p>
+              <p class="g-font-size-16"> Elementum eu facilisis sed odio morbi quis commodo odio aenean. Nam libero justo laoreet sit amet cursus sit amet. Ut sem nulla pharetra diam sit. Sagittis purus sit amet volutpat consequat mauris nunc congue nisi. Integer eget aliquet nibh praesent tristique magna sit amet purus. Eget est lorem ipsum dolor sit amet consectetur adipiscing.</p>
+            </div>
+          </div>
+        </section>
       </div>
+
+      <div id="afiliados" style="display: none;">
+        <section class="g-bg-primary g-color-white g-pa-30" style="background-image: url(assets/img/bg/pattern5.png);">
+          <legend style="text-align: center">Afiliados</legend>        
+          <ul class="list-unstyled" id="lista_asociados">
+            <!-- Colegio Asociado -->
+            <li class="g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+              <div class="media">
+                <div class="d-flex g-mt-2 g-mr-15">
+                  <img class="g-width-40 g-height-40 rounded-circle" src="../../assets/img-temp/100x100/img7.jpg" alt="Image Description">
+                </div>
+                <div class="media-body">
+                  <p class="m-0"><strong>Nombre colegio</strong></p>
+                  <span class="g-font-size-12 g-color-gray">Está asociado, solicita tu clave de acceso</span>
+                </div>
+              </div>
+            </li>
+            <!-- Fin Colegio Asociado -->
+            <!-- Colegio Asociado -->
+            <li class="g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+              <div class="media">
+                <div class="d-flex g-mt-2 g-mr-15">
+                  <img class="g-width-40 g-height-40 rounded-circle" src="../../assets/img-temp/100x100/img7.jpg" alt="Image Description">
+                </div>
+                <div class="media-body">
+                  <p class="m-0"><strong>Nombre colegio</strong></p>
+                  <span class="g-font-size-12 g-color-gray">Está asociado, solicita tu clave de acceso</span>
+                </div>
+              </div>
+            </li>
+            <!-- Fin Colegio Asociado -->
+            <!-- Colegio Asociado -->
+            <li class="g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+              <div class="media">
+                <div class="d-flex g-mt-2 g-mr-15">
+                  <img class="g-width-40 g-height-40 rounded-circle" src="../../assets/img-temp/100x100/img7.jpg" alt="Image Description">
+                </div>
+                <div class="media-body">
+                  <p class="m-0"><strong>Nombre colegio</strong></p>
+                  <span class="g-font-size-12 g-color-gray">Está asociado, solicita tu clave de acceso</span>
+                </div>
+              </div>
+            </li>
+            <!-- Fin Colegio Asociado -->
+            <!-- Colegio Asociado -->
+            <li class="g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+              <div class="media">
+                <div class="d-flex g-mt-2 g-mr-15">
+                  <img class="g-width-40 g-height-40 rounded-circle" src="../../assets/img-temp/100x100/img7.jpg" alt="Image Description">
+                </div>
+                <div class="media-body">
+                  <p class="m-0"><strong>Nombre colegio</strong></p>
+                  <span class="g-font-size-12 g-color-gray">Está asociado, solicita tu clave de acceso</span>
+                </div>
+              </div>
+            </li>
+            <!-- Fin Colegio Asociado -->
+          </ul>
+        </section>
+      </div>
+
+      <div id="contacto" style="display: none;">
+        <section class="container g-pt-10 g-pb-40">
+          <div class="row justify-content-between">
+            <div class="col-md-12">
+              <h1 class="g-font-weight-300 mb-5">Pixeel Ltd.</h1>
+              <div class="mb-4">
+                <h2 class="h5 g-color-gray-dark-v2 g-font-weight-600">Address:</h2>
+                <p class="g-color-gray-dark-v4 g-font-size-16">Unit 25 Suite 3, 925 Prospect PI
+                  <br>New York Avenue
+                  <br>United States</p>
+                </div>
+
+                <div class="mb-4">
+                  <h2 class="h5 g-color-gray-dark-v2 g-font-weight-600">Email us:</h2>
+                  <p class="g-color-gray-dark-v4">Email: <a class="g-color-gray-dark-v2" href="#">htmlstream@support.com</a>
+                  </p>
+                </div>
+
+                <div class="mb-3">
+                  <h2 class="h5 g-color-gray-dark-v2 g-font-weight-600">Call us:</h2>
+                  <p class="g-color-gray-dark-v4">Call: <span class="g-color-gray-dark-v2">+32 333 444 555</span>
+                  </p>
+                </div>
+
+                <div class="g-mb-30">
+                  <p class="g-color-gray-dark-v5 g-font-weight-600 g-font-size-16"><em>Monday - Friday: 9:00 AM to 6:00 PM</em>
+                  </p>
+                </div>
+
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <a class="u-icon-v1 g-color-gray-dark-v5 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
+                      <i class="g-font-size-default fa fa-facebook"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item g-mx-4">
+                    <a class="u-icon-v1 g-color-gray-dark-v5 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
+                      <i class="g-font-size-default fa fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item g-mx-4">
+                    <a class="u-icon-v1 g-color-gray-dark-v5 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
+                      <i class="g-font-size-default fa fa-google-plus"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item g-mx-4">
+                    <a class="u-icon-v1 g-color-gray-dark-v5 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
+                      <i class="g-font-size-default fa fa-linkedin"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
     </div>
-    <!-- End Icon Blocks -->
-    <!-- Call To Action -->
-    <section class="g-bg-primary g-color-white g-pa-30" style="background-image: url(assets/img/bg/pattern5.png);">
-      <div class="d-md-flex justify-content-md-center text-center">
-        <div class="align-self-md-center">
-          <p class="lead g-font-weight-400 g-mr-20--md g-mb-15 g-mb-0--md">Consulta si tu colegio ya está en nuestra lista de afiliados</p>
-        </div>
-        <div class="align-self-md-center">
-          <a class="btn btn-lg u-btn-white text-uppercase g-font-weight-600 g-font-size-12" target="_blank" href="consultar.html">Consultar</a>
-        </div>
-      </div>
-    </section>
-    <!-- End Call To Action -->
 
-    <!-- Copyright Footer -->
     <footer class="g-bg-gray-dark-v1 g-color-white-opacity-0_8 g-py-20">
       <div class="container">
         <div class="row">
@@ -176,13 +443,13 @@
               <small class="d-block g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">2021 &copy; Todos los derechos reservados.</small>
               <ul class="u-list-inline">
                 <li class="list-inline-item">
-                  <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Política de Privacidad</a>
+                  <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#" onclick="mostrar_seccion('politica')">Política de Privacidad</a>
                 </li>
                 <li class="list-inline-item">
                   <span>|</span>
                 </li>
                 <li class="list-inline-item">
-                  <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Términos de Uso</a>
+                  <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#" onclick="mostrar_seccion('terminos')">Términos de Uso</a>
                 </li>
               </ul>
             </div>
@@ -190,7 +457,7 @@
         </div>
       </div>
     </footer>
-    <!-- End Copyright Footer -->
+
     <a class="js-go-to u-go-to-v1" href="#" data-type="fixed" data-position='{"bottom": 15,"right": 15}' data-offset-top="400" data-compensation="#js-header" data-show-effect="zoomIn">&nbsp;
       <i class="hs-icon hs-icon-arrow-top"></i>
     </a>

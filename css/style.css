@@ -4,3 +4,22 @@ html, body{
 	-webkit-tap-highlight-color: transparent;
 	-webkit-touch-callout: none;
 }
+.lista_asociados {
+  list-style-type: "→ ";
+  list-style-position: inside;
+}
+
+main {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 28%;    /* Footer height */
+}
+
+footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
