@@ -4,7 +4,7 @@ importScripts('js/sw-utils.js');
 
 const STATIC_CACHE    = 'static-v4';
 const DYNAMIC_CACHE   = 'dynamic-v2';
-const INMUTABLE_CACHE = 'inmutable-v1';
+const INMUTABLE_CACHE = 'inmutable-v2';
 
 
 const APP_SHELL = [
@@ -27,6 +27,7 @@ const APP_SHELL = [
     'assets/vendor/icon-line-pro/style.css',
     'assets/vendor/icon-hs/style.css',
     'assets/vendor/animate.css',
+    'assets/img-temp/100x100/img7.jpg',
     'assets/vendor/typedjs/typed.css',
     'assets/vendor/hamburgers/hamburgers.min.css',
     'assets/css/unify-core.css',
