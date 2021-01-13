@@ -33,14 +33,15 @@ function manejoWebService(cacheName, req){
 	else{
 		if(req.clone().url.includes('validarColegio'))
 		{
+			var newResp;
 			var clave = req.clone().url.split("/");
-			if(clave[6] != "3c33914f37a20d14fd12aeaa8e0352de"){
-				const newResp ={
+			if(clave[6] != "c893bad68927b457dbed39460e6afd62"){
+				newResp ={
 					status:"ok",
 					valido:false
 				};
 			}else{
-				const newResp ={
+				newResp ={
 					status:"ok",
 					valido:true,
 					id_colegio:15
