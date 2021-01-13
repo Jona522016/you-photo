@@ -101,7 +101,7 @@
                   </li>
                   <li class="nav-item  g-mx-10--lg g-mx-15--xl g-mt-2">
                     <br>
-                    <p class="text-muted text-center">V- Beta 0.005</p>
+                    <p class="text-muted text-center" id="boton_desarrollador">V- Beta 0.005</p>
                   </li>
                 </ul>
               </div>
@@ -112,6 +112,20 @@
       </header>
 
       <div id="inicio">
+        <div class="alert alert-dismissible fade show g-bg-teal g-color-white rounded-0 g-mb-minus-3" id="alerta_grabacion" role="alert" style="display: none;">
+          <button type="button" class="close u-alert-close--light" onclick="$('#alrta_grabacion').hide();">
+            <span>×</span>
+          </button>
+
+          <div class="media">
+            <span class="d-flex g-mr-10 g-mt-5">
+              <i class="icon-check g-font-size-25"></i>
+            </span>
+            <span class="media-body align-self-center">
+              <strong>Perfecto</strong>, ya hemos almacenado tu fotografía! <span class="badge badge-info" id="tipo_grabacion">Offline</span>
+            </span>
+          </div>
+        </div>
 
         <section class="g-bg-cover g-bg-pos-top-center g-bg-img-hero g-bg-black-opacity-0_4--after g-min-height-100vh g-flex-centered g-py-100" style="background-image: url(img/promo_block_photo.jpg);">
           <div class="container g-color-white text-center g-z-index-1">
@@ -171,13 +185,25 @@
         </section>
       </div> 
 
+      <div id="desarrollo"  style="display:none;">
+        <section  class="container g-p-40">
+          <legend class="text-center">Fotografías almacenadas offline</legend>
+          <hr>
+          <div class="row justify-content-between">
+            <div class="col-sm-12" id="fotos">
+
+            </div>   
+          </div>
+        </section>
+      </div>
+
       <div id="tomar_foto" style="display:none;">
         <section class="container g-p-40">
           <div class="row justify-content-between">
             <div class="col-md-12 g-mb-60">
               <div class="alert alert-dismissible fade show g-bg-red g-color-white rounded-0" id="alerta" role="alert" style="display: none;">
-                <button type="button" class="close u-alert-close--light" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">×</span>
+                <button type="button" class="close u-alert-close--light" onclick="$('#alerta_campos').hide();">
+                  <span>×</span>
                 </button>
 
                 <div class="media">
@@ -185,68 +211,94 @@
                     <i class="icon-ban g-font-size-25"></i>
                   </span>
                   <span class="media-body align-self-center">
-                    <strong>Lo sentimos!</strong> Su clave no es válida, consulta con tu colegio para que te otorguen la clave correspondiente, o intenta escribir de nuevo la clave
+                    <strong>Lo sentimos!</strong> Tu clave no es válida, consulta con tu colegio para que te otorguen la clave correspondiente, o intenta escribir de nuevo la clave
                   </span>
                 </div>
               </div>
-              <form>
-                <div class="row">
-                  <div class="col-md-6 form-group g-mb-20">
-                    <label class="g-color-gray-dark-v2 g-font-size-13">Nombre Estudiante:</label>
-                    <input class="form-control g-color-gray-dark-v5 g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" placeholder="Nombre completo del Estudiante" id="nombre" type="text">
-                  </div>
+              <div class="alert alert-dismissible fade show g-bg-red g-color-white rounded-0" id="alerta_campos" role="alert" style="display: none;">
+                <button type="button" class="close u-alert-close--light" onclick="$('#alerta_campos').hide();">
+                  <span >×</span>
+                </button>
 
-                  <div class="col-md-6 form-group g-mb-20">
-                    <label class="g-color-gray-dark-v2 g-font-size-13">Grado que cursa el estudiante:</label>
-                    <select class="form-control rounded-0" id="grado">
-                      <option value="1">Primero Primaria</option>
-                      <option value="2">Segundo Primaria</option>
-                      <option value="3">Tercero Primaria</option>
-                      <option value="4">Cuarto Primaria</option>
-                      <option value="5">Quinto Primaria</option>
-                      <option value="6">Sexto Primaria</option>
-                      <option value="7">Primero Básico</option>
-                      <option value="8">Segundo Básico</option>
-                      <option value="9">Tercero Básico</option>
-                      <option value="10">Cuarto Bachillerato</option>
-                      <option value="11">Quinto Bachillerato</option>
-                      <option value="12">Cuarto Secretariado</option>
-                      <option value="13">Quinto Secretariado</option>
-                      <option value="14">Sexto Secretariado</option>
-                      <option value="15">Cuarto Perito Contador</option>
-                      <option value="16">Quinto Perito Contador</option>
-                      <option value="17">Sexto Perito Contador</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-6 form-group g-mb-20">
-                    <label>
-                      &nbsp;
-                    </label>
-                    <label class="btn btn-block btn-primary">
-                      Tomar Foto <input type="file" accept="image/*" id="foto" capture="camera"  name="foto" style="display: none;">
-                    </label>
-                    <img id="vista_previa" src="#" style="display: none;" class="mx-aut mt-1" width="100%" />
-                  </div>
-
-                  <div class="col-md-6 form-group g-mb-10">
-                    <label class="g-color-gray-dark-v2 g-font-size-13">Clave:</label>
-                    <div class="input-group">
-                      <input class="form-control g-color-gray-dark-v5 g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15 " autocomplete="cc-number" placeholder="Clave de acceso para tu colegio" id="clave" type="password">
-                      <div class="input-group-append">
-                        <span class="input-group-text">
-                          <i class="fa fa-eye-slash" onclick="verClave()" id="ver_clave"></i>
-                        </span>
-                      </div>            
-                    </div>
-                    <small class="form-text text-muted g-color-red" id="clave_invalida" style="display: none;">
-                      Clave invalida
-                    </small> 
-                  </div>
+                <div class="media">
+                  <span class="d-flex g-mr-10 g-mt-5">
+                    <i class="icon-ban g-font-size-25"></i>
+                  </span>
+                  <span class="media-body align-self-center">
+                    <strong>Oops!</strong> Todos los campos son obligatorios
+                  </span>
                 </div>
-                <hr>
-                <button class="btn u-btn-primary btn-block rounded-3 g-py-12 g-px-20" id="enviar_foto">Enviar formulario</button>
-              </form>
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group g-mb-20">
+                  <label class="g-color-gray-dark-v2 g-font-size-13">Nombre Estudiante:</label>
+                  <input class="form-control g-color-gray-dark-v5 g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" placeholder="Nombre completo del Estudiante" id="nombre" type="text">
+                  <small class="form-text text-muted g-color-red" id="alerta_nombre" style="display: none;">
+                    Debes colocar el nombre del estudiante
+                  </small> 
+                </div>
+
+                <div class="col-md-6 form-group g-mb-20">
+                  <label class="g-color-gray-dark-v2 g-font-size-13">Grado que cursa el estudiante:</label>
+                  <select class="form-control rounded-0" id="grado">
+                    <option value="0" selected>Elije una opción</option>
+                    <option value="1">Primero Primaria</option>
+                    <option value="2">Segundo Primaria</option>
+                    <option value="3">Tercero Primaria</option>
+                    <option value="4">Cuarto Primaria</option>
+                    <option value="5">Quinto Primaria</option>
+                    <option value="6">Sexto Primaria</option>
+                    <option value="7">Primero Básico</option>
+                    <option value="8">Segundo Básico</option>
+                    <option value="9">Tercero Básico</option>
+                    <option value="10">Cuarto Bachillerato</option>
+                    <option value="11">Quinto Bachillerato</option>
+                    <option value="12">Cuarto Secretariado</option>
+                    <option value="13">Quinto Secretariado</option>
+                    <option value="14">Sexto Secretariado</option>
+                    <option value="15">Cuarto Perito Contador</option>
+                    <option value="16">Quinto Perito Contador</option>
+                    <option value="17">Sexto Perito Contador</option>
+                  </select>
+                  <small class="form-text text-muted g-color-red" id="alerta_grado" style="display: none;">
+                    Debes seleccionar un grado
+                  </small> 
+                </div>
+
+                <div class="col-md-6 form-group g-mb-20">
+                  <label>
+                    &nbsp;
+                  </label>
+                  <label class="btn btn-block btn-primary">
+                    Tomar Foto <input type="file" accept="image/*" id="foto" capture="camera" style="display: none;">
+                  </label>
+                  <small class="form-text text-muted g-color-red" id="alerta_foto" style="display: none;">
+                    Debes tomar la foto
+                  </small> 
+                  <img id="vista_previa" src="#" style="display: none;" class="mx-aut mt-1" width="100%" />
+                  <button class="btn btn-block btn-danger g-mt-20" style="display: none;" id="eliminar_foto">Eliminar Foto</button>
+                </div>
+
+                <div class="col-md-6 form-group g-mb-10">
+                  <label class="g-color-gray-dark-v2 g-font-size-13">Clave:</label>
+                  <div class="input-group">
+                    <input class="form-control g-color-gray-dark-v5 g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15 " autocomplete="cc-number" placeholder="Clave de acceso para tu colegio" id="clave" type="password">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="fa fa-eye-slash" onclick="verClave()" id="ver_clave"></i>
+                      </span>
+                    </div>            
+                  </div>
+                  <small class="form-text text-muted g-color-red" id="clave_invalida" style="display: none;">
+                    Clave invalida
+                  </small> 
+                  <small class="form-text text-muted g-color-red" id="alerta_clave" style="display: none;">
+                    Debes ingresar la clave de tu colegio
+                  </small> 
+                </div>
+              </div>
+              <hr>
+              <button class="btn u-btn-primary btn-block rounded-3 g-py-12 g-px-20" id="enviar_foto">Enviar formulario</button>
             </div>
           </div>
         </section>
@@ -484,6 +536,7 @@
   <!-- End Scripts -->
 
   <script src="js/app.js"></script>
+  <script src="js/md5.min.js"></script>
   <script src="js/pouchdb.min.js"></script>
 
 </body>

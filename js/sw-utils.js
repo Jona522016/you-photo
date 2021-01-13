@@ -19,20 +19,27 @@ function manejoWebService(cacheName, req){
 
 	if(req.clone().method === 'POST'){
 		//Interceptar POST
+		if( self.registration.sync ){
 
-		req.clone().text().then(body =>{
+			return req.clone().text().then(body =>{
+				const bodyObj = JSON.parse(body);
+				return guardarFotografia(bodyObj);
+			});
 
-			console.log(body);
-
-		});
-
-		return fetch( req );
+		}else{
+			return fetch( req );
+		}
 	}
-	else if(req.clone().url.includes('validarClave'))
-	{
-		return fetch( req );
-
-	}else{
+	else{
+		if(req.clone().url.includes('validarColegio'))
+		{
+			const newResp ={
+				status:"ok",
+				valido:true,
+				id_colegio:15
+			};		
+			return new Response(JSON.stringify(newResp));
+		}
 		return fetch().then( res =>{
 			if(res.ok){
 				actualizaCacheDinamico(cacheName, req, res.clone());

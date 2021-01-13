@@ -1,9 +1,11 @@
 // imports
+importScripts('js/pouchdb.min.js');
+importScripts('js/sw-db.js');
 importScripts('js/sw-utils.js');
 
 
-const STATIC_CACHE    = 'static-v3';
-const DYNAMIC_CACHE   = 'dynamic-v2';
+const STATIC_CACHE    = 'static-v4';
+const DYNAMIC_CACHE   = 'dynamic-v3';
 const INMUTABLE_CACHE = 'inmutable-v1';
 
 
@@ -16,12 +18,14 @@ const APP_SHELL = [
     'css/style.css',
     'js/app.js',
     'js/index.js',
+    'js/sw-db.js',
     'js/sw-utils.js'
     ];
 
     const APP_SHELL_INMUTABLE = [
     'https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik',
     'assets/vendor/bootstrap/bootstrap.min.css',
+    'assets/vendor/icon-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0',
     'assets/vendor/icon-awesome/css/font-awesome.min.css',
     'assets/vendor/icon-line/css/simple-line-icons.css',
     'assets/vendor/icon-line-pro/style.css',
@@ -46,8 +50,8 @@ const APP_SHELL = [
     'assets/js/components/hs.go-to.js',
     'assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js',
     'assets/js/components/hs.scrollbar.js',
-    'js/pouchdb.min.js',
-    'js/md5.min.js'
+    'js/md5.min.js',
+    'js/pouchdb.min.js'
     ];
 
 
@@ -99,13 +103,13 @@ const APP_SHELL = [
 
         let respuesta;
 
-        if(e.request.url.includes('app.negociosweb.info')){
+        if(e.request.url.includes('camino-seguro.com')){
 
             respuesta = manejoWebService( DYNAMIC_CACHE, e.request);
 
         }else{
 
-           respuesta = caches.match( e.request ).then( res => {
+         respuesta = caches.match( e.request ).then( res => {
 
             if ( res ) {
                 return res;
@@ -119,15 +123,24 @@ const APP_SHELL = [
 
             }
 
-        });
+        });     
 
-       }
+     }
 
+     e.respondWith( respuesta );
 
-
-
-       e.respondWith( respuesta );
-
-   });
+ });
 
 
+// TAREA ASINCRONAS
+self.addEventListener('sync',e=>{
+
+    console.log('SW: Sync');
+
+    if(e.tag==="nueva-foto"){
+
+        const respuesta = subirFotografias();
+
+        e.waitUntil( respuesta );
+    }
+});
