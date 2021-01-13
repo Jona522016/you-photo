@@ -72,6 +72,7 @@ $("#enviar_foto").click(function(){
 						setTimeout(function() { 
 							$('#alerta_grabacion').fadeOut(1300); 
 						}, 5000);
+						resetearForm();
 					}					
 				})
 				.catch(err => console.log('app js error: ', err));
@@ -193,6 +194,19 @@ function imprimirImagenes(){
 		});	
 	});
 }
+
+function resetearForm(){
+	$("#foto").val(null);
+	$("#vista_previa").hide(100);
+	$("#eliminar_foto").hide(150);
+	setTimeout(function(){
+		$("#vista_previa").attr('src','');
+	},500);
+	$("#nombre").val('');
+	$("#grado").val('');
+	$("#clave").val('');
+}
+
 
 function estaConectado(){
 	if(navigator.onLine){
