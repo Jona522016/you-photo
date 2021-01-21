@@ -25,7 +25,7 @@ $("#foto").change(function(){
 $("#enviar_foto").click(function(){
 	campos = ["nombre","grado","clave","foto"];
 	if( mostrarCamposObligatorios(campos)){
-		fetch("https://camino-seguro.com/inventario/operacion_encabezado/validarColegio/"+md5($("#clave").val()))
+		fetch("https://api.negociosweb.info/api/validarColegio/"+md5($("#clave").val()))
 		.then(res => res.json())
 		.then( res=>{
 			if(res.valido){
@@ -50,7 +50,7 @@ $("#enviar_foto").click(function(){
 					},
 					foto: $("#vista_previa").attr('src')
 				}
-				fetch('https://camino-seguro.com/inventario/operacion_encabezado/responder',
+				fetch('https://api.negociosweb.info/api/responder',
 				{
 					method:'POST',
 					headers:{

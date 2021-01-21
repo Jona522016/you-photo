@@ -103,7 +103,7 @@ const APP_SHELL = [
 
         let respuesta;
 
-        if(e.request.url.includes('camino-seguro.com')){
+        if(e.request.url.includes('api.negociosweb.info')){
 
             respuesta = manejoWebService( DYNAMIC_CACHE, e.request);
 
